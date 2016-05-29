@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.augustovictor.add2do.Models.Todo;
 import com.augustovictor.add2do.R;
@@ -31,7 +32,7 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.ViewHolder> 
 
         View todoView = inflater.inflate(R.layout.list_item_todo, parent, false);
 
-        ViewHolder viewHolder = new ViewHolder(todoView);
+        ViewHolder viewHolder = new ViewHolder(context, todoView);
         return viewHolder;
     }
 
@@ -57,19 +58,29 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.ViewHolder> 
         return mTodos.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public CheckBox doneCheckBox;
         public TextView titleTextView;
         public TextView descriptionTextView;
         public TextView creationDateTextView;
+        private Context context;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(Context context, View itemView) {
             super(itemView);
             doneCheckBox = (CheckBox) itemView.findViewById(R.id.todo_done_ck);
             titleTextView = (TextView) itemView.findViewById(R.id.todo_title_tv);
             descriptionTextView = (TextView) itemView.findViewById(R.id.todo_description_tv);
             creationDateTextView = (TextView) itemView.findViewById(R.id.todo_date_tv);
+            this.context = context;
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getLayoutPosition();
+            Todo todo = mTodos.get(position);
+            Toast.makeText(context, todo.getmTitle(), Toast.LENGTH_SHORT).show();
         }
     }
 }

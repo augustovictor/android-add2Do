@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import com.augustovictor.add2do.Adapters.TodosAdapter;
 import com.augustovictor.add2do.Models.Todo;
 import com.augustovictor.add2do.R;
+import com.augustovictor.add2do.Utils.DividerItemDecoration;
 
 import java.util.ArrayList;
 
@@ -29,6 +30,12 @@ public class TodoListActivity extends AppCompatActivity {
         rvTodos.setAdapter(adapter);
 
         rvTodos.setLayoutManager(new LinearLayoutManager(this));
+
+        rvTodos.setHasFixedSize(true);
+
+        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
+
+        rvTodos.addItemDecoration(itemDecoration);
 
     }
 }
