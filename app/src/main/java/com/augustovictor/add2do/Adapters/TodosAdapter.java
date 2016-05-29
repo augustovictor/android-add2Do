@@ -20,6 +20,10 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.ViewHolder> 
 
     private List<Todo> mTodos;
 
+    public TodosAdapter(List<Todo> mTodos) {
+        this.mTodos = mTodos;
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();

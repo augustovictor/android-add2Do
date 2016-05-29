@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.augustovictor.add2do.TodoListActivity">
+    tools:context=".Activities.TodoListActivity">
 
     <include android:id="@+id/recycler_view" layout="@layout/recycler_view" />
 

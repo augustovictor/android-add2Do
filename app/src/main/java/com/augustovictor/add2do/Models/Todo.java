@@ -47,7 +47,7 @@ public class Todo {
         this.mCreationDate = mCreationDate;
     }
 
-    private static ArrayList<Todo> createTodoList(int numTodos) {
+    public static ArrayList<Todo> createTodoList(int numTodos) {
         ArrayList<Todo> todos = new ArrayList<>();
 
         for(int i = 0; i < numTodos; i++) {
