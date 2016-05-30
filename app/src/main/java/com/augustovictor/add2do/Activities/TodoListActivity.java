@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 
 import com.augustovictor.add2do.Adapters.TodosAdapter;
 import com.augustovictor.add2do.Models.Todo;
@@ -37,5 +39,13 @@ public class TodoListActivity extends AppCompatActivity {
 
         rvTodos.addItemDecoration(itemDecoration);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 }

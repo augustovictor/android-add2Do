@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Add2Do</string>
+    <string name="show_done_tasks_txt">Show done tasks</string>
 </resources>
