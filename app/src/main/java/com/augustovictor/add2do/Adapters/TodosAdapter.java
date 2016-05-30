@@ -51,6 +51,10 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.ViewHolder> 
 
         TextView creationDateTv = holder.creationDateTextView;
         creationDateTv.setText(todo.getmCreationDate().toString());
+
+        TextView priorityTv = holder.priorityTextView;
+        priorityTv.setText(setPriorityText(todo.getmPriority()));
+
     }
 
     @Override
@@ -64,6 +68,7 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.ViewHolder> 
         public TextView titleTextView;
         public TextView descriptionTextView;
         public TextView creationDateTextView;
+        public TextView priorityTextView;
         private Context context;
 
         public ViewHolder(Context context, View itemView) {
@@ -72,6 +77,7 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.ViewHolder> 
             titleTextView = (TextView) itemView.findViewById(R.id.todo_title_tv);
             descriptionTextView = (TextView) itemView.findViewById(R.id.todo_description_tv);
             creationDateTextView = (TextView) itemView.findViewById(R.id.todo_date_tv);
+            priorityTextView = (TextView) itemView.findViewById(R.id.todo_priority);
             this.context = context;
             itemView.setOnClickListener(this);
         }
@@ -83,4 +89,16 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.ViewHolder> 
             Toast.makeText(context, todo.getmTitle(), Toast.LENGTH_SHORT).show();
         }
     }
+
+    public String setPriorityText(int priority) {
+        String priorityLvl;
+        switch (priority) {
+            case 1: priorityLvl = "LOW"; break;
+            case 2: priorityLvl = "MEDIUM"; break;
+            case 3: priorityLvl = "HIGH"; break;
+            default: priorityLvl = "LOW";
+        }
+        return priorityLvl;
+    }
+
 }
