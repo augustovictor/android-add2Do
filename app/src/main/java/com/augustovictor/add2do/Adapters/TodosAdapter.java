@@ -71,7 +71,7 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.ViewHolder> 
         public TextView priorityTextView;
         private Context context;
 
-        public ViewHolder(Context context, View itemView) {
+        public ViewHolder(final Context context, View itemView) {
             super(itemView);
             doneCheckBox = (CheckBox) itemView.findViewById(R.id.todo_done_ck);
             titleTextView = (TextView) itemView.findViewById(R.id.todo_title_tv);

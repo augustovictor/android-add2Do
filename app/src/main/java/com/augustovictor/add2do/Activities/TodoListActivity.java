@@ -1,5 +1,6 @@
 package com.augustovictor.add2do.Activities;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -40,6 +41,11 @@ public class TodoListActivity extends AppCompatActivity {
         rvTodos.addItemDecoration(itemDecoration);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        Resources res = getResources();
+        String subtitle = res.getQuantityString(R.plurals.tasks_counter, todos.size(), todos.size());
+        toolbar.setSubtitle(todos.size() + " " + subtitle);
+
         setSupportActionBar(toolbar);
     }
 

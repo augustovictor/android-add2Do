@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Add2Do</string>
     <string name="show_done_tasks_txt">Show done tasks</string>
+    
+    <plurals name="tasks_counter">
+        <item quantity="one">task</item>
+        <item quantity="other">tasks</item>
+    </plurals>
 </resources>
