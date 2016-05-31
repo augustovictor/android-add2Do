@@ -1,9 +1,11 @@
 package com.augustovictor.add2do.Activities;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -14,6 +16,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.augustovictor.add2do.Adapters.TodosAdapter;
 import com.augustovictor.add2do.Models.Todo;
@@ -29,6 +32,7 @@ public class TodoListActivity extends AppCompatActivity {
     private NavigationView nvDrawer;
     private ActionBarDrawerToggle drawerToggle;
     private Toolbar toolbar;
+    private FloatingActionButton addButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,17 @@ public class TodoListActivity extends AppCompatActivity {
 
         drawerToggle = setUpDrawerToggle();
         mDrawer.addDrawerListener(drawerToggle);
+
+        addButton = (FloatingActionButton) findViewById(R.id.add_task_btn);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), TodoActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     // NAVIGATION DRAWER
