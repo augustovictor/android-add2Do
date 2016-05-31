@@ -4,6 +4,8 @@
     <string name="todo_list_txt">Todo tasks</string>
     <string name="done_list_txt">Done tasks</string>
     <string name="settings_txt">Settings</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 
     <plurals name="tasks_counter">
         <item quantity="one">task</item>
