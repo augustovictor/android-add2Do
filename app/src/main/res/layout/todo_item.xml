@@ -2,23 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorButtonNormal"
+        android:background="@color/colorPrimary"
         android:paddingTop="45dp"
         android:paddingBottom="20dp"
         android:paddingLeft="40dp"
         android:paddingRight="16dp"
         android:orientation="vertical">
 
-        <EditText
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Title"
-            android:textSize="30sp"/>
+            android:layout_height="match_parent">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:hint="Title"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="30sp" />
+        </android.support.design.widget.TextInputLayout>
 
         <Spinner
             android:layout_width="match_parent"
@@ -30,13 +38,18 @@
 
     </LinearLayout>
 
-    <EditText
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Description"
-        android:textSize="16sp"
+        android:layout_height="match_parent"
         android:layout_marginTop="20dp"
         android:layout_marginRight="16dp"
-        android:layout_marginLeft="40dp"/>
+        android:layout_marginLeft="40dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description"
+            android:textSize="16sp" />
+    </android.support.design.widget.TextInputLayout>
 
 </LinearLayout>
