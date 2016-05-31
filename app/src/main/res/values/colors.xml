@@ -6,4 +6,5 @@
     <color name="colorControlHighlight">#3B8D86</color>
     <color name="colorButtonNormal">#4FB5AB</color>
     <color name="colorControlActivated">#3B8D86</color>
+    <color name="navigationDrawerBackground">#83a0b4</color>
 </resources>
