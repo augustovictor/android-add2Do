@@ -1,39 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:paddingTop="45dp"
+        android:orientation="vertical"
         android:paddingBottom="20dp"
         android:paddingLeft="40dp"
         android:paddingRight="16dp"
-        android:orientation="vertical">
+        android:paddingTop="45dp">
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:textColorHint="@android:color/white"
+            app:theme="@style/TextThemeDarkBackground">
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:hint="Title"
-                android:textColorHint="@color/colorAccent"
-                android:textSize="30sp" />
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
         </android.support.design.widget.TextInputLayout>
 
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:layout_marginTop="35dp">
-        </Spinner>
-
+            android:layout_marginTop="35dp"></Spinner>
 
 
     </LinearLayout>
@@ -41,15 +40,18 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginLeft="40dp">
+        android:layout_marginTop="20dp">
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:hint="Description"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:gravity="top|left"
+            android:background="@android:color/transparent"/>
     </android.support.design.widget.TextInputLayout>
 
 </LinearLayout>
