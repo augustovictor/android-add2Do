@@ -11,4 +11,10 @@
         <item quantity="one">task</item>
         <item quantity="other">tasks</item>
     </plurals>
+
+    <string-array name="todo_priority_levels">
+        <item>LOW</item>
+        <item>MEDIUM</item>
+        <item>HIGH</item>
+    </string-array>
 </resources>
