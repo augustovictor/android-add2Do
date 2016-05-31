@@ -1,5 +1,6 @@
 package com.augustovictor.add2do.Activities;
 
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -27,6 +28,7 @@ public class TodoListActivity extends AppCompatActivity {
     private DrawerLayout mDrawer;
     private NavigationView nvDrawer;
     private ActionBarDrawerToggle drawerToggle;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,13 @@ public class TodoListActivity extends AppCompatActivity {
         nvDrawer = (NavigationView) findViewById(R.id.navigation_view);
         setupDrawerContent(nvDrawer);
 
+        drawerToggle = setUpDrawerToggle();
+        mDrawer.addDrawerListener(drawerToggle);
+    }
+
+    // NAVIGATION DRAWER
+    private ActionBarDrawerToggle setUpDrawerToggle() {
+        return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open, R.string.drawer_close);
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
@@ -50,6 +59,19 @@ public class TodoListActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        drawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        drawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    // MENU OPTIONS
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
@@ -57,6 +79,11 @@ public class TodoListActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(drawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+
         switch (item.getItemId()) {
             case android.R.id.home:
                 mDrawer.openDrawer(GravityCompat.START);
@@ -66,13 +93,9 @@ public class TodoListActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-    }
-
+    // TOOLBAR
     public void setUpToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         Resources res = getResources();
         String subtitle = res.getQuantityString(R.plurals.tasks_counter, todos.size(), todos.size());
@@ -81,6 +104,7 @@ public class TodoListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
+    // RECYCLERVIEW
     public void setUpRecyclerView() {
 
         // RecyclerView
@@ -97,6 +121,6 @@ public class TodoListActivity extends AppCompatActivity {
         rvTodos.addItemDecoration(itemDecoration);
         rvTodos.setHasFixedSize(true);
 
-
     }
+
 }
