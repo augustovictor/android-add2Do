@@ -30,7 +30,7 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.ViewHolder> 
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View todoView = inflater.inflate(R.layout.list_item_todo, parent, false);
+        View todoView = inflater.inflate(R.layout.todo_list_item, parent, false);
 
         ViewHolder viewHolder = new ViewHolder(context, todoView);
         return viewHolder;
