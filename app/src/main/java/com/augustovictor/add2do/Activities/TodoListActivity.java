@@ -52,7 +52,7 @@ public class TodoListActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), TodoActivity.class);
+                Intent i = TodoActivity.newIntent(TodoListActivity.this);
                 startActivity(i);
             }
         });
