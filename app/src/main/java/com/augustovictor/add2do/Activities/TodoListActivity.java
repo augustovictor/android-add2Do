@@ -37,7 +37,7 @@ public class TodoListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_todo_list);
+        setContentView(R.layout.todo_list_fragment);
         setUpRecyclerView();
         setUpToolbar();
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);

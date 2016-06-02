@@ -3,7 +3,7 @@ package com.augustovictor.add2do.Utils;
 /**
  * Created by victoraweb on 5/29/16.
  */
-public enum Priority {
+public enum TodoPriorityEnum {
 
     high(3),
     medium(2),
@@ -11,7 +11,7 @@ public enum Priority {
 
     int priority;
 
-    private Priority(int p) {
+    private TodoPriorityEnum(int p) {
         this.priority = p;
     }
 
