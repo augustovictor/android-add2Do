@@ -1,8 +1,6 @@
 package com.augustovictor.add2do.Models;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Random;
 
 /**
  * Created by victoraweb on 5/29/16.
@@ -55,23 +53,5 @@ public class Todo {
 
     public void setmPriority(int mPriority) {
         this.mPriority = mPriority;
-    }
-
-    public static ArrayList<Todo> createTodoList(int numTodos) {
-        ArrayList<Todo> todos = new ArrayList<>();
-
-        for(int i = 0; i < numTodos; i++) {
-            Todo todo = new Todo();
-            todo.setmTitle("Todo " + i);
-            todo.setmDescription("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.");
-            todo.setmDone(i % 2 == 0);
-            todo.setmCreationDate(new Date());
-
-            Random random = new Random();
-            todo.setmPriority(random.nextInt(3) + 1);
-            todos.add(todo);
-
-        }
-        return todos;
     }
 }

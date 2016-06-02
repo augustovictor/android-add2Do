@@ -20,14 +20,15 @@ import android.view.View;
 
 import com.augustovictor.add2do.Adapters.TodosAdapter;
 import com.augustovictor.add2do.Models.Todo;
+import com.augustovictor.add2do.Models.TodoManager;
 import com.augustovictor.add2do.R;
 import com.augustovictor.add2do.Utils.DividerItemDecoration;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class TodoListActivity extends AppCompatActivity {
 
-    ArrayList<Todo> todos;
+    List<Todo> todos;
     private DrawerLayout mDrawer;
     private NavigationView nvDrawer;
     private ActionBarDrawerToggle drawerToggle;
@@ -124,7 +125,7 @@ public class TodoListActivity extends AppCompatActivity {
 
         // RecyclerView
         RecyclerView rvTodos = (RecyclerView) findViewById(R.id.recycler_view);
-        todos = Todo.createTodoList(20);
+        todos = TodoManager.get(TodoListActivity.this).getmTodos();
 
         // Adapter
         TodosAdapter adapter = new TodosAdapter(todos);
