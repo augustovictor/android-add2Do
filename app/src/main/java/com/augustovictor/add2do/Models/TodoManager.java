@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 /**
  * Created by victoraweb on 6/2/16.
@@ -47,5 +48,17 @@ public class TodoManager {
             mTodos.add(todo);
         }
         return mTodos;
+    }
+
+    public Todo getmTodo(UUID todoId) {
+        Todo todo;
+
+        for(Todo t : mTodos) {
+            if(t.getId().equals(todoId)) {
+                return t;
+            }
+        }
+
+        return null;
     }
 }

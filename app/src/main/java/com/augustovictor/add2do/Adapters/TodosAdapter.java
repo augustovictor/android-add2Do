@@ -1,14 +1,15 @@
 package com.augustovictor.add2do.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.augustovictor.add2do.Activities.TodoActivity;
 import com.augustovictor.add2do.Models.Todo;
 import com.augustovictor.add2do.R;
 
@@ -86,7 +87,8 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.ViewHolder> 
         public void onClick(View v) {
             int position = getLayoutPosition();
             Todo todo = mTodos.get(position);
-            Toast.makeText(context, todo.getmTitle(), Toast.LENGTH_SHORT).show();
+            Intent i = TodoActivity.newIntent(context, todo.getId());
+            context.startActivity(i);
         }
     }
 

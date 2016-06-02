@@ -22,6 +22,7 @@
             app:theme="@style/TextThemeDarkBackground">
 
             <EditText
+                android:id="@+id/todo_title_ed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Title"
@@ -55,6 +56,7 @@
             android:layout_marginTop="20dp">
 
             <EditText
+                android:id="@+id/todo_description_ed"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:background="@android:color/transparent"

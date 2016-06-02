@@ -1,6 +1,7 @@
 package com.augustovictor.add2do.Models;
 
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * Created by victoraweb on 5/29/16.
@@ -11,8 +12,10 @@ public class Todo {
     private boolean mDone;
     private Date mCreationDate;
     private int mPriority;
+    private UUID id;
 
     public Todo() {
+        this.id = UUID.randomUUID();
     }
 
     public String getmTitle() {
@@ -53,5 +56,9 @@ public class Todo {
 
     public void setmPriority(int mPriority) {
         this.mPriority = mPriority;
+    }
+
+    public UUID getId() {
+        return id;
     }
 }
