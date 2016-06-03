@@ -15,11 +15,6 @@ public class TodoActivity extends SingleFragmentActivity {
 
     private static final String EXTRA_TODO_ID = "com.augustovictor.add2do.todo_id";
 
-    public static Intent newIntent(Context context) {
-        Intent i = new Intent(context, TodoActivity.class);
-        return i;
-    }
-
     public static Intent newIntent(Context context, UUID todoId) {
         Intent i = new Intent(context, TodoActivity.class);
         i.putExtra(EXTRA_TODO_ID, todoId);
