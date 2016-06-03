@@ -4,13 +4,16 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.augustovictor.add2do.Models.Todo;
-import com.augustovictor.add2do.Models.TodoManager;
+import com.augustovictor.add2do.Models.TodoSingleton;
 import com.augustovictor.add2do.R;
+import com.augustovictor.add2do.Utils.OperationTypeEnum;
 
 import java.util.UUID;
 
@@ -24,6 +27,7 @@ public class TodoFragment extends Fragment {
     private Todo mTodo;
     private EditText todoTitleEditText;
     private EditText todoDescriptioneEditText;
+    private String operationType;
 
 
     public static TodoFragment newInstance(UUID todoId) {
@@ -38,7 +42,8 @@ public class TodoFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         UUID todoId = (UUID) getArguments().getSerializable(ARG_TODO_ID);
-        mTodo = TodoManager.get(getActivity()).getmTodo(todoId);
+        mTodo = TodoSingleton.get(getActivity()).getmTodo(todoId);
+        operationType = getActivity().getIntent().getExtras().get(OperationTypeEnum.OPERATION.toString()).toString();
     }
 
     @Nullable
@@ -47,11 +52,20 @@ public class TodoFragment extends Fragment {
         View view = inflater.inflate(R.layout.todo_fragment, container, false);
 
         todoTitleEditText = (EditText) view.findViewById(R.id.todo_title_ed);
-        todoTitleEditText.setText(mTodo.getmTitle());
-
         todoDescriptioneEditText = (EditText) view.findViewById(R.id.todo_description_ed);
-        todoDescriptioneEditText.setText(mTodo.getmDescription());
+
+        if(operationType.equals(OperationTypeEnum.EDIT.toString())) {
+            todoTitleEditText.setText(mTodo.getmTitle());
+            todoDescriptioneEditText.setText(mTodo.getmDescription());
+        }
+
 
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_main, menu);
     }
 }

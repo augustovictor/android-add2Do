@@ -18,11 +18,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.augustovictor.add2do.Adapters.TodosAdapter;
+import com.augustovictor.add2do.Adapters.TodosListAdapter;
 import com.augustovictor.add2do.Models.Todo;
-import com.augustovictor.add2do.Models.TodoManager;
+import com.augustovictor.add2do.Models.TodoSingleton;
 import com.augustovictor.add2do.R;
 import com.augustovictor.add2do.Utils.DividerItemDecoration;
+import com.augustovictor.add2do.Utils.OperationTypeEnum;
 
 import java.util.List;
 
@@ -53,11 +54,13 @@ public class TodoListActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = TodoActivity.newIntent(TodoListActivity.this);
+                Todo todo = new Todo();
+                TodoSingleton.get(TodoListActivity.this).addTodo(todo);
+                Intent i = TodoActivity.newIntent(TodoListActivity.this, todo.getId());
+                i.putExtra(OperationTypeEnum.OPERATION.toString(), OperationTypeEnum.ADD);
                 startActivity(i);
             }
         });
-
     }
 
     // NAVIGATION DRAWER
@@ -125,10 +128,10 @@ public class TodoListActivity extends AppCompatActivity {
 
         // RecyclerView
         RecyclerView rvTodos = (RecyclerView) findViewById(R.id.recycler_view);
-        todos = TodoManager.get(TodoListActivity.this).getmTodos();
+        todos = TodoSingleton.get(TodoListActivity.this).getmTodos();
 
         // Adapter
-        TodosAdapter adapter = new TodosAdapter(todos);
+        TodosListAdapter adapter = new TodosListAdapter(todos);
         rvTodos.setAdapter(adapter);
         rvTodos.setLayoutManager(new LinearLayoutManager(this));
 

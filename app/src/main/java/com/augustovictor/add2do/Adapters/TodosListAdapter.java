@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.augustovictor.add2do.Activities.TodoActivity;
 import com.augustovictor.add2do.Models.Todo;
 import com.augustovictor.add2do.R;
+import com.augustovictor.add2do.Utils.OperationTypeEnum;
 
 import java.util.List;
 
@@ -88,7 +89,7 @@ public class TodosListAdapter extends RecyclerView.Adapter<TodosListAdapter.View
             int position = getLayoutPosition();
             Todo todo = mTodos.get(position);
             Intent i = TodoActivity.newIntent(context, todo.getId());
-            i.putExtra("FLAG", "edit");
+            i.putExtra(OperationTypeEnum.OPERATION.toString(), OperationTypeEnum.EDIT);
             context.startActivity(i);
         }
     }
