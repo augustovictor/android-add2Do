@@ -11,21 +11,21 @@ import java.util.UUID;
 /**
  * Created by victoraweb on 6/2/16.
  */
-public class TodoManager {
-    private static TodoManager sTodoManger;
+public class TodoSingleton {
+    private static TodoSingleton sTodoManger;
     private Context mContext;
 
     private List<Todo> mTodos;
 
-    private TodoManager(Context context) {
+    private TodoSingleton(Context context) {
         mContext = context.getApplicationContext();
         mTodos = new ArrayList<>() ;
         createTodoList(15);
     }
 
-    public static TodoManager get(Context context) {
+    public static TodoSingleton get(Context context) {
         if(sTodoManger == null) {
-            sTodoManger = new TodoManager(context);
+            sTodoManger = new TodoSingleton(context);
         }
         return sTodoManger;
     }
@@ -51,8 +51,6 @@ public class TodoManager {
     }
 
     public Todo getmTodo(UUID todoId) {
-        Todo todo;
-
         for(Todo t : mTodos) {
             if(t.getId().equals(todoId)) {
                 return t;
@@ -60,5 +58,9 @@ public class TodoManager {
         }
 
         return null;
+    }
+
+    public void addTodo(Todo todo) {
+        mTodos.add(todo);
     }
 }

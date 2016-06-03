@@ -18,11 +18,11 @@ import java.util.List;
 /**
  * Created by victoraweb on 5/29/16.
  */
-public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.ViewHolder> {
+public class TodosListAdapter extends RecyclerView.Adapter<TodosListAdapter.ViewHolder> {
 
     private List<Todo> mTodos;
 
-    public TodosAdapter(List<Todo> mTodos) {
+    public TodosListAdapter(List<Todo> mTodos) {
         this.mTodos = mTodos;
     }
 
@@ -88,6 +88,7 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.ViewHolder> 
             int position = getLayoutPosition();
             Todo todo = mTodos.get(position);
             Intent i = TodoActivity.newIntent(context, todo.getId());
+            i.putExtra("FLAG", "edit");
             context.startActivity(i);
         }
     }
